@@ -45,3 +45,4 @@ COPY enable-graphics-apis.ps1 C:\enable-graphics-apis.ps1
 ENTRYPOINT ["cmd.exe", "/S", "/K", "C:\\entrypoint.cmd", "powershell.exe"]
 
 #docker build . -f Dockerfile.mcr -t duochh/server-pixel-streaming-berth100:ltsc2022
+#docker run -it --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F953599 --name berth100 duochh/server-pixel-streaming-berth100:ltsc2022

@@ -55,7 +55,28 @@
 - Run Unreal Engine Pixel Streaming package.
 
     ```powershell
-    .\projects\PixelStreamingDemo\Packaged\Windows-localhost-url\PixelStreamingDemo\Binaries\Win64\PixelStreamingDemo.exe -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 -PixelStreamingUrl=ws://localhost:8888 -AllowPixelStreamingCommands -RenderOffScreen -StdOut -FullStdOutLogOutput
+    .\projects\Berth100\Packaged\Windows\Berth100\Binaries\Win64\Berth100.exe -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 -PixelStreamingUrl=ws://localhost:8888 -AllowPixelStreamingCommands -RenderOffScreen -StdOut -FullStdOutLogOutput
+    ```
+
+- Other way to run
+
+    ```cmd
+    docker push duochh/server-pixel-streaming-berth100:ltsc2022
+    docker run -it --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F953599 --name berth100 duochh/server-pixel-streaming-berth100:ltsc2022
+    ```
+
+- Verify running game in container:
+
+    ```cmd
+    docker exec -it <container-id> powershell
+    ```
+
+    ```powershell
+    # Check running process and copy Id of game process
+    Get-Process -ProcessName <MyProject>
+
+    # Check using port of game process
+    Get-NetTcpConnection -OwningProcess <MyProjectId>
     ```
 
 ## How to view on Browser
