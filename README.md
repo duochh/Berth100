@@ -38,10 +38,19 @@
     docker build . -f <Dockerfile.*> -t <image-name>
     ```
 
-- Run container from docker image and exec into it in powershell terminal.
+- Run container with DHCP IP from docker image and exec into it in powershell terminal.
 
     ```cmd
     docker run -it --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F953599 --name <container-name> <image-name>
+    docker ps -aqf "name=<container-name>"
+    docker exec -it <container-id> powershell
+    ```
+
+- Run container with static IP from docker image and exec into it in powershell terminal.
+
+    ```cmd
+    docker network create --driver nat --subnet=172.20.0.0/16 <customnetwork>
+    docker run -it --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F953599 --net <customnetwork> --ip 172.20.0.21 --name <container-name> <image-name>
     docker ps -aqf "name=<container-name>"
     docker exec -it <container-id> powershell
     ```
