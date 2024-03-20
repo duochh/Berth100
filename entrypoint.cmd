@@ -5,5 +5,11 @@
 @rem Enable vendor-specific graphics APIs if the container is running with GPU acceleration
 powershell -ExecutionPolicy Bypass -File "%~dp0.\enable-graphics-apis.ps1"
 
+@rem Run Pixel Streaming package
+powershell "%~dp0.\projects\Berth100\Packaged\Windows\Berth100\Binaries\Win64\Berth100.exe -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 -PixelStreamingUrl=ws://localhost:8888 -AllowPixelStreamingCommands -RenderOffScreen -StdOut -FullStdOutLogOutput"
+
+@rem Start Pixel Streaming Signalling server
+powershell "%~dp0.\PixelStreamingInfrastructure\SignallingWebServer\platform_scripts\cmd\Start_SignallingServer.ps1 -Wait -NoNewWindow"
+
 @rem Run the entrypoint command specified via our command-line parameters
 %*
