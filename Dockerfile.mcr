@@ -47,6 +47,6 @@ ENTRYPOINT ["cmd.exe", "/S", "/K", "C:\\entrypoint.cmd", "powershell.exe"]
 #docker build . -f Dockerfile.mcr -t duochh/berth100-pixel-streaming:ltsc2022
 #docker network create --driver nat --subnet=172.20.0.0/16 devnetwork
 #docker inspect network devnetwork
-#docker run -it --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F953599 --net devnetwork --ip 172.20.0.4 --name berth100 duochh/berth100-pixel-streaming:ltsc2022
+#docker run -it --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F953599 --net devnetwork --ip 172.20.0.1 --name berth100 duochh/berth100-pixel-streaming:ltsc2022
 #docker push duochh/berth100-pixel-streaming:ltsc2022
 #docker cp de03f339a59e:C:\projects\Berth100\Packaged\Windows\Berth100\Saved\Logs C:\Users\PC-071\Downloads
